@@ -99,35 +99,37 @@
         url: 'http://localhost:7823'
       };
 
-      // Only place where we need jQuery to make an ajax request
-      // to our server to convert the dataURL to a PNG image,
+      // Make an ajax request to our server to convert the dataURL to a PNG image,
       // and return the url of the converted image.
       _this.imageURLInput.value = 'Generating url ...';
-      $.ajax({
-        url: options.url,
-        type: 'POST',
-        dataType: 'json',
-        data: { 'base64': _this.dataURL },
-        complete: function(xhr, textStatus) {
-          // Request complete.
-        },
-        // Request was successful.
-        success: function(response, textStatus, xhr) {
-          console.log('Response: ', response, xhr);
-          // Conversion successful.
-          if (xhr.status === 200) {
-            _this.imageURL = response.image_url;
-            // Paste the PNG image url into the input field.
-            _this.imageURLInput.value = _this.imageURL;
-            _this.imageURLInput.removeAttribute('disabled');
-          }
-        },
-        error: function(xhr, textStatus, errorThrown) {
+
+      var data = 'base64=' + _this.dataURL;
+
+      var request = new XMLHttpRequest();
+      request.open('POST', options.url, true);
+
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+      request.onload = function() {
+        var response = JSON.parse(request.responseText);
+        console.log('Response: ', request);
+
+        if (request.status >= 200 && request.status < 400) {
+          // Success!
+          _this.imageURL = response.image_url;
+          // Paste the PNG image url into the input field.
+          _this.imageURLInput.value = _this.imageURL;
+          _this.imageURLInput.removeAttribute('disabled');
+        } else {
           // Some error occured.
-          console.log('Error: ', errorThrown);
-          _this.imageURLInput.value = 'An error occured.';
+          _this.imageURLInput.value = response.error;
         }
-      });
+      };
+
+      request.onerror = function() {
+        // There was a connection error of some sort
+      };
+
+      request.send(data);
     }
 
   };
