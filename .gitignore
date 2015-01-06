@@ -94,12 +94,8 @@ publish
 .graphics
 _test
 _archive
-uploads
 tmp
-
-# Files to ignore #
-#######################
-*.png
+server/uploads/*.png
 
 # Vim files to ignore #
 #######################
