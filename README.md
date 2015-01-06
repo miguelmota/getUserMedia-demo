@@ -20,7 +20,7 @@ cd client/
 python -m SimpleHTTPServer 9999
 ```
 
-Navigate to demo at `http://localhost:9999`.
+Navigate to demo at `http://localhost:9999`
 
 # License
 
