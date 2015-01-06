@@ -96,7 +96,7 @@ _test
 _archive
 uploads
 tmp
-server/uploads/*
+server/uploads/*.png
 
 # Vim files to ignore #
 #######################
