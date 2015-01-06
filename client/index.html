@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="UX-A-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
+    <title>Screenshots with getUserMedia API</title>
+    <link href="styles/style.css" rel="stylesheet">
+  <body>
+
+    <div class="row">
+      <h1>Screenshots with getUserMedia API</h1>
+    </div>
+
+    <div class="row">
+      <!-- Video element (live stream) -->
+      <label>Video Stream</label>
+      <video autoplay id="video" width="640" height="480"></video>
+    </div>
+
+    <div class="row">
+      <!-- Canvas Element (screenshot) -->
+      <label>Screenshot (base64 dataURL)</label>
+      <canvas id="canvas" width="640" height="480"></canvas>
+    </div>
+
+    <div class="row">
+      <!-- Capture button -->
+      <button id="capture-btn">Capture!</button>
+    </div>
+
+    <div class="row">
+      <!-- Image URL output -->
+      <label>Image URL</label>
+      <input type="text" id="image-url-input" disabled>
+    </div>
+
+    <div class="row">
+    </div>
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="scripts/main.js"></script>
+  </body>
+</html>
