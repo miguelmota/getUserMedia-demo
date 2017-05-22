@@ -6,7 +6,7 @@ This a demo of how to use getUserMedia to access your webcam and capture a scree
 
 # Demo
 
-[http://lab.moogs.io/getusermedia-demo](http://lab.moogs.io/getusermedia-demo)
+[https://lab.miguelmota.com/getusermedia-demo](https://lab.miguelmota.com/getusermedia-demo)
 
 # Usage
 
